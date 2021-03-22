@@ -1,5 +1,5 @@
 /********************************************************************
- * Programmer:	sveinson
+ * Programmer:  sveinson
  * Class:  CS20S
  *
  * Assignment: Client code for searching and sorting classes
@@ -28,14 +28,14 @@ public class SandSClient {  // begin class
     
     // ********** declaration of variables **********
 
-        String strin;				// string data input from keyboard
-        String strout;				// processed info string to be output
-        String bannerOut;			// string to print banner to message dialogs
+        String strin;               // string data input from keyboard
+        String strout;              // processed info string to be output
+        String bannerOut;           // string to print banner to message dialogs
 
-        String prompt;				// prompt for use in input dialogs
+        String prompt;              // prompt for use in input dialogs
 
-        String delim = "[ :]+";		// delimiter string for splitting input string
-        String tabSpace = "      ";	// six spaces
+        String delim = "[ :]+";     // delimiter string for splitting input string
+        String tabSpace = "      "; // six spaces
         
         int[] list = new int[MAX];          // TEST ARRAY
         int actualLength = 0;
@@ -49,11 +49,11 @@ public class SandSClient {  // begin class
         ProgramInfo programInfo = new ProgramInfo();
         ArrayFunctions  arrayFunctions = new ArrayFunctions(MAX);
         Random rnd = new Random();
-    	
+        
     // ********** Print output Banner **********
     
         System.out.println(programInfo.getBanner("A2 Search and Sort"));
-    	
+        
     // ************************ get input **********************
 
     // ************************ processing ***************************
@@ -61,23 +61,23 @@ public class SandSClient {  // begin class
         Sorter s = new Sorter();
  
         actualLength = arrayFunctions.loadList(list); 
-        arrayFunctions.printList(list, actualLength);
+        //arrayFunctions.printList(list, actualLength);
         s.bubbleSort(list, actualLength);
-        arrayFunctions.printList(list, actualLength);
-
-	// **** quick sort ****
-	
-        //actualLength = arrayFunctions.loadList(list);
-        //arrayFunctions.printList(list, actualLength);
-        //s.quickSort(list, 0, list.length - 1);
         //arrayFunctions.printList(list, actualLength);
 
-	// **** selection sort ****
-	        
+    // **** quick sort ****
+    
         actualLength = arrayFunctions.loadList(list);
         arrayFunctions.printList(list, actualLength);
-        s.selectionSort(list, actualLength);
+        s.quickSort(list, 0, list.length - 1);
         arrayFunctions.printList(list, actualLength);
+
+    // **** selection sort ****
+            
+        actualLength = arrayFunctions.loadList(list);
+        //arrayFunctions.printList(list, actualLength);
+        s.selectionSort(list, actualLength);
+        //arrayFunctions.printList(list, actualLength);
         
         // ************** searchin **********************
         
@@ -89,16 +89,35 @@ public class SandSClient {  // begin class
         */
         
         // create the searcher object
-        //Searcher searcher = new Searcher();
+        /*Searcher searcher = new Searcher();
         
-        //actualLength = arrayFunctions.loadList(list);
-        //key = rnd.nextInt(10000);
-        //key++;
-        //searchIndex = searcher.linearSearch(list, actualLength, key);
+        actualLength = arrayFunctions.loadList(list);
+        arrayFunctions.printList(list, actualLength);
+        //key = rnd.nextInt(100);
+        key = 20;
+        key++;
+        System.out.println("Key: " + key);
+        searchIndex = searcher.linearSearch(list, actualLength, key);
+        if(searchIndex == -1){
+            System.out.println("Key not found");
+        } else {
+            System.out.println(list[searchIndex]);
+        }
         //s.quickSort(list, 0, list.length - 1);
-        // searchIndex = searcher.linearSearch(list, actualLength, key);
-        // searchIndex = searcher.binarySearch(list, actualLength, key);
-       
+        s.selectionSort(list, actualLength);
+        arrayFunctions.printList(list, actualLength);
+        searchIndex = searcher.linearSearch(list, actualLength, key);
+        if(searchIndex == -1){
+            System.out.println("Key not found");
+        } else {
+            System.out.println(list[searchIndex]);
+        }
+        searchIndex = searcher.binarySearch(list, 0, actualLength - 1, key);
+        if(searchIndex == -1){
+            System.out.println("Key not found");
+        } else {
+            System.out.println(list[searchIndex]);
+        } */
 
     // ************************ print output ****************************
     

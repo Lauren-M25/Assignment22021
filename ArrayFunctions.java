@@ -44,7 +44,7 @@ import java.util.Random;
         Random rnd = new Random();
 
         for(int i = 0; i < actualSize; i++){
-            list[i] = rnd.nextInt(10000)+1;
+            list[i] = rnd.nextInt(100)+1;
         } // end for i 
 
          return actualSize;

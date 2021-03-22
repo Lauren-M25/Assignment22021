@@ -9,6 +9,7 @@
 
 // import libraries as needed here
 import java.util.*;
+import javax.swing.*;
 
 public class Sorter {
     //*** Class Variables ***
@@ -31,14 +32,9 @@ public class Sorter {
     //*** Getters ***
     
     /*****************************************
-    * Description: brief description of the methods purpose
+    * Description: sorter ursing the bubble sort method
     * 
     * Interface:
-    * 
-    * @param        each parameter of the method should be listed with an @param
-    * @param        parametername description of parameter
-    * 
-    * @return       any return value will be noted here
     * ****************************************/
     
     public void bubbleSort(int[] list, int length){
@@ -55,14 +51,9 @@ public class Sorter {
     }
     
     /*****************************************
-    * Description: brief description of the methods purpose
+    * Description: sorter using the selection sort method
     * 
     * Interface:
-    * 
-    * @param        each parameter of the method should be listed with an @param
-    * @param        parametername description of parameter
-    * 
-    * @return       any return value will be noted here
     * ****************************************/
     
     public void selectionSort(int[] list, int length){
@@ -82,6 +73,55 @@ public class Sorter {
        }
     }
     
+    /*****************************************
+    * Description: sorter using the quick sort methods
+    * 
+    * Interface:
+    * ****************************************/
+    
+    public void quickSort(int[] list, int leftBound, int rightBound){
+        
+        int pivot = partition(list, leftBound, rightBound);
+        
+        if(leftBound < pivot - 1){
+            quickSort(list, leftBound, pivot - 1);
+        }
+        
+        if(rightBound > pivot + 1){
+            quickSort(list, pivot + 1, rightBound);
+        }
+        
+    }
+    
+    /*****************************************
+    * Description: sorter using the quick sort methods
+    * 
+    * Interface:
+    * ****************************************/
+    
+    public int partition(int[] list, int low, int high){
+        int pivotIndex = high;
+        int dataSaver;
+        high--;
+        while(low < high){
+            while(list[low] < list[pivotIndex]){
+                low++;
+            }
+            while(list[high] > list[pivotIndex]){
+                high--;
+            }
+            dataSaver = list[low];
+            list[low] = list[high];
+            list[high] = dataSaver;
+            low++;
+            high--;
+        }
+        dataSaver = list[low];
+        list[low] = list[pivotIndex];
+        list[pivotIndex] = dataSaver;
+        pivotIndex = low;
+        return pivotIndex;
+    }
     //*** Setters ***
     
 } // end of public class
