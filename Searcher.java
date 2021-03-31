@@ -60,22 +60,20 @@ public class Searcher {
         return keyIndex;
     }
     
-    public int binarySearch(int[] list, int high, int low, int key){
-        int keyIndex = -1;
-        int mid = (high + 1) / 2;
-        if(high > low){
-            if(list[mid] > key){
-                binarySearch(list, mid, low, key);
-            } else {
-                binarySearch(list, high, mid, key);
+    public int binarySearch(int[] list, int low, int high, int key){
+        int mid = (high + low) / 2;
+        if(high < low){
+                return - 1;
             }
+        if(list[mid] == key){
+            return mid;
         } else {
-            if(list[mid] == key){
-                keyIndex = mid;
-            }
+                if(key > list[mid]){
+                    return binarySearch(list, mid + 1, high, key);
+                } else {
+                    return binarySearch(list, low, mid - 1, key);
+                }
         }
-        
-        return keyIndex;
     }
     
     //*** Setters ***

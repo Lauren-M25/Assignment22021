@@ -35,7 +35,7 @@ import java.util.Random;
      
      public void printList(int[] list, int len){
          for(int i = 0; i < len; i++)
-             System.out.println((i+1) + ". " + list[i]);
+             System.out.println((i) + ". " + list[i]);
      } // end print array
 
     // ********** mutators **********
@@ -46,8 +46,8 @@ import java.util.Random;
         for(int i = 0; i < actualSize; i++){
             list[i] = rnd.nextInt(100)+1;
         } // end for i 
-
+        
          return actualSize;
-     } // end loadLIst
+     } // end loadList
  
  }  // end class

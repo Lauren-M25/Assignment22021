@@ -16,6 +16,8 @@ public class Sorter {
     
     //*** Instance Variables ***
     
+    ArrayFunctions  arrayFunctions = new ArrayFunctions(20);
+    
     //*** Constructors ***
     
     /*****************************************
@@ -79,16 +81,15 @@ public class Sorter {
     * Interface:
     * ****************************************/
     
-    public void quickSort(int[] list, int leftBound, int rightBound){
-        
-        int pivot = partition(list, leftBound, rightBound);
-        
-        if(leftBound < pivot - 1){
-            quickSort(list, leftBound, pivot - 1);
+    public void quickSort(int[] list, int left, int bigIndex){
+        int right = bigIndex;
+        int pivot = partition(list, left, right);
+        if(left < pivot - 1){
+            quickSort(list, left, pivot - 1);
         }
         
-        if(rightBound > pivot + 1){
-            quickSort(list, pivot + 1, rightBound);
+        if(right > pivot){
+            quickSort(list, pivot, right);
         }
         
     }
@@ -100,27 +101,27 @@ public class Sorter {
     * ****************************************/
     
     public int partition(int[] list, int low, int high){
-        int pivotIndex = high;
+        int pivot = list[(high + low) / 2];
         int dataSaver;
-        high--;
-        while(low < high){
-            while(list[low] < list[pivotIndex]){
+        while(low <= high){
+            
+            while(list[low] < pivot){
                 low++;
             }
-            while(list[high] > list[pivotIndex]){
+            
+            while(list[high] > pivot){
                 high--;
             }
-            dataSaver = list[low];
-            list[low] = list[high];
-            list[high] = dataSaver;
-            low++;
-            high--;
+            
+            if(low <= high){
+                dataSaver = list[low];
+                list[low] = list[high];
+                list[high] = dataSaver;
+                low++;
+                high--;
+            }
         }
-        dataSaver = list[low];
-        list[low] = list[pivotIndex];
-        list[pivotIndex] = dataSaver;
-        pivotIndex = low;
-        return pivotIndex;
+        return low;
     }
     //*** Setters ***
     

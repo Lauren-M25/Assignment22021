@@ -61,9 +61,9 @@ public class SandSClient {  // begin class
         Sorter s = new Sorter();
  
         actualLength = arrayFunctions.loadList(list); 
-        //arrayFunctions.printList(list, actualLength);
+        arrayFunctions.printList(list, actualLength);
         s.bubbleSort(list, actualLength);
-        //arrayFunctions.printList(list, actualLength);
+        arrayFunctions.printList(list, actualLength);
 
     // **** quick sort ****
     
@@ -75,11 +75,11 @@ public class SandSClient {  // begin class
     // **** selection sort ****
             
         actualLength = arrayFunctions.loadList(list);
-        //arrayFunctions.printList(list, actualLength);
+        arrayFunctions.printList(list, actualLength);
         s.selectionSort(list, actualLength);
-        //arrayFunctions.printList(list, actualLength);
+        arrayFunctions.printList(list, actualLength);
         
-        // ************** searchin **********************
+        // ************** searching **********************
         
         /* now for some searching. we'll generate a new list,
         *  search for a key value using the linear search on an unordered list
@@ -89,35 +89,33 @@ public class SandSClient {  // begin class
         */
         
         // create the searcher object
-        /*Searcher searcher = new Searcher();
+        Searcher searcher = new Searcher();
         
         actualLength = arrayFunctions.loadList(list);
         arrayFunctions.printList(list, actualLength);
-        //key = rnd.nextInt(100);
-        key = 20;
+        key = rnd.nextInt(100);
         key++;
         System.out.println("Key: " + key);
         searchIndex = searcher.linearSearch(list, actualLength, key);
         if(searchIndex == -1){
             System.out.println("Key not found");
         } else {
-            System.out.println(list[searchIndex]);
+            System.out.println(list[searchIndex] + " at index " + searchIndex);
         }
-        //s.quickSort(list, 0, list.length - 1);
-        s.selectionSort(list, actualLength);
+        s.quickSort(list, 0, list.length - 1);
         arrayFunctions.printList(list, actualLength);
         searchIndex = searcher.linearSearch(list, actualLength, key);
         if(searchIndex == -1){
             System.out.println("Key not found");
         } else {
-            System.out.println(list[searchIndex]);
+            System.out.println(list[searchIndex] + " at index " + searchIndex);
         }
         searchIndex = searcher.binarySearch(list, 0, actualLength - 1, key);
         if(searchIndex == -1){
             System.out.println("Key not found");
         } else {
-            System.out.println(list[searchIndex]);
-        } */
+            System.out.println(list[searchIndex] + " at index " + searchIndex);
+        }
 
     // ************************ print output ****************************
     
